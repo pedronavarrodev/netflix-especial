@@ -1,0 +1,230 @@
+@font-face {
+    font-family: 'NetflixSans-Bold';
+    src: url(../fonts/NetflixSans-Bold.otf);
+
+    font-family: 'NetflixSans-Light';
+    src: url(../fonts/NetflixSans-Light.otf);
+
+    font-family: 'NetflixSans-Medium';
+    src: url(../fonts/NetflixSans-Medium.otf);
+
+    font-family: 'NetflixSans-Regular';
+    src: url(../fonts/NetflixSans-Regular.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #141414;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(54, 54, 54); 
+    border-radius: 10px;
+  }
+
+div::-webkit-scrollbar:vertical {
+    display: none;
+}
+  
+
+#items-wrapper {
+    width: 100vw;
+}
+
+.items {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+#item {
+    flex: none;
+    width: 50%;
+    height: 650px;
+    object-fit: cover;
+    scroll-snap-align: start;
+    pointer-events: none;
+    padding: 5px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.titulo{
+    text-align: center;
+    font-family: 'NetflixSans-Regular';
+    color: rgb(104, 104, 104);
+}
+
+/* Scroll down */ 
+.wrap-scrolldownhoney{
+  left: 50%;
+  position: absolute;
+  bottom: 1%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+  .scrolldownhoney {
+    border: 2px solid rgb(104, 104, 104);
+    border-radius: 30px;
+    height: 46px;
+    margin: 0 auto 8px;
+    text-align: center;
+    width: 30px;
+}
+    .scrolldownhoney-c1,
+    .scrolldownhoney-c2 {
+      animation-duration: 1.5s;
+      animation-name: scrolldownhoney;
+      animation-iteration-count: infinite;
+      fill: rgb(104, 104, 104);
+    }
+  .scrolldownhoney-c2 {
+    animation-delay: .75s;
+}
+
+/* Botão para voltar ao início */
+
+.inicio {
+  display: flex;
+  justify-content: end;
+  margin-right: 2%;
+  margin-bottom: .5%;
+}
+
+button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+ }
+ 
+ .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform
+     600ms
+     cubic-bezier(.3, .7, .4, 1);
+ }
+ 
+ .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+     to left,
+     rgb(29, 29, 29) 0%,
+     rgb(31, 31, 31) 8%,
+     rgb(31, 31, 31) 92%,
+     rgb(20, 20, 20) 100%
+   );
+ }
+ 
+ .front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: rgb(27, 27, 27);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform
+     600ms
+     cubic-bezier(.3, .7, .4, 1);
+ }
+ 
+ button:hover {
+  filter: brightness(110%);
+  /* background: rgb(117, 12, 12); */
+ }
+ 
+ button:hover .front {
+  transform: translateY(-6px);
+  transition: transform
+     250ms
+     cubic-bezier(.3, .7, .4, 1.5);
+     background: rgb(117, 12, 12);
+ }
+ 
+ button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+ }
+ 
+ button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform
+     250ms
+     cubic-bezier(.3, .7, .4, 1.5);
+ }
+ 
+ button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+ }
+ 
+ button:focus:not(:focus-visible) {
+  outline: none;
+ }
+
+b {
+  color: rgb(192, 191, 191);
+}
+
+
+@keyframes scrolldownhoney {
+  0% {
+    opacity: 0;
+    transform: translate(0, -8px);
+}
+  50%{
+    opacity: 1;
+    transform: translate(0, 0);
+}
+  100%{
+    opacity: 0;
+    transform: translate(0, 8px);
+}
+}
